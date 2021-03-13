@@ -3,9 +3,16 @@ var blok = document.getElementById('block');
 var ptica = document.getElementById('character');
 var skakanje = 0;
 
-rupa.addEventListener('animationiteration', function(){
+function hole_position(){
     var hole_position = (Math.random()*(-500+150))-150;
     rupa.style.top = hole_position + 'px';
+}
+document.addEventListener('DOMContentLoaded', function(){
+    hole_position();
+})
+
+rupa.addEventListener('animationiteration', function(){
+    hole_position();
 })
 
 setInterval(function(){
@@ -31,7 +38,7 @@ function skok(){
         if(pticaTop > 6){
         ptica.style.top = pticaTop - 5 + 'px';
         }
-        if(brojacSkokova > 20){
+        if(brojacSkokova > 10){
             clearInterval(interval_skakanja);
             skakanje = 0;
             brojacSkokova = 0;
@@ -40,6 +47,5 @@ function skok(){
     }, 10)
 }
 document.querySelector('html').addEventListener('click', function(){
-    console.log('hej');
     skok();
 });
