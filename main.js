@@ -33,8 +33,9 @@ setInterval(function(){
     var pTop = -(500 - pticaTop);
     if((pticaTop > 480) || ((blokLeft < 20) && (blokLeft > -50) && ((pTop < rupaTop) || (pTop > rupaTop + 130)))){
         alert('Game over. ' + poeni_div.innerHTML + ' points');
-        ptica.style.top = 100 + 'px';
+        poeni_div.innerHTML = 0;
         poeni = 0;
+        ptica.style.top = 100 + 'px';
     }
 }, 10)
 
