@@ -4,11 +4,6 @@ var ptica = document.getElementById('character');
 var poeni_div = document.getElementById('points');
 var skakanje = 0;
 var poeni = 0;
-poeni_div.innerHTML = poeni;
-
-highScore = [];
-
-poeni_div.innerHTML = poeni;
 
 function hole_position(){
     var hole_position = (Math.random()*(-500+150))-150;
@@ -16,6 +11,8 @@ function hole_position(){
 }
 document.addEventListener('DOMContentLoaded', function(){
     hole_position();
+    poeni_div.innerHTML = poeni;
+    poeni++;
 })
 
 rupa.addEventListener('animationiteration', function(){
