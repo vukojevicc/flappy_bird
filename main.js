@@ -4,6 +4,8 @@ var ptica = document.getElementById('character');
 var poeni_div = document.getElementById('points');
 var skakanje = 0;
 var poeni = 0;
+poeni_div.innerHTML = poeni;
+
 highScore = [];
 
 poeni_div.innerHTML = poeni;
@@ -18,14 +20,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
 rupa.addEventListener('animationiteration', function(){
     hole_position();
-    poeni++;
     poeni_div.innerHTML = poeni;
+    poeni++;
 })
-function high_score(){
-    highScore.push(poeni);
-
-    return highScore[0];
-}
 setInterval(function(){
     var pticaTop = parseInt(window.getComputedStyle(ptica).getPropertyValue('top'));
     if(skakanje == 0){
@@ -35,9 +32,9 @@ setInterval(function(){
     var rupaTop = parseInt(window.getComputedStyle(rupa).getPropertyValue('top'));
     var pTop = -(500 - pticaTop);
     if((pticaTop > 480) || ((blokLeft < 20) && (blokLeft > -50) && ((pTop < rupaTop) || (pTop > rupaTop + 130)))){
-        alert('Game over. ' + high_score() + ' points');
+        alert('Game over. ' + poeni_div.innerHTML + ' points');
         ptica.style.top = 100 + 'px';
-        location.reload();
+        poeni = 0;
     }
 }, 10)
 
