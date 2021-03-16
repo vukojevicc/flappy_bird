@@ -34,7 +34,7 @@ setInterval(function(){
         if(zivoti > 0){
             alert('Preostalo zivota ' + zivoti + '. Ostvareno poena ' + poeni_div.innerHTML)
         }else{
-            alert('Game over. ' + poeni_div.innerHTML + ' points');
+            alert('Igra zavrsena. ' + poeni_div.innerHTML + ' poena');
             zivoti = 3;
         }
         poeni_div.innerHTML = 0;
