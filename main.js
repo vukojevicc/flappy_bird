@@ -5,7 +5,7 @@ var poeni_div = document.getElementById('points');
 var skakanje = 0;
 var zivoti = 3
 var poeni = 0;
-var najbolji_rezultat = [];
+var najbolji_rezultati = [];
 
 function hole_position(){
     var hole_position = (Math.random()*(-500+150))-150;
@@ -30,13 +30,19 @@ setInterval(function(){
     var blokLeft = parseInt(window.getComputedStyle(blok).getPropertyValue('left'));
     var rupaTop = parseInt(window.getComputedStyle(rupa).getPropertyValue('top'));
     var pTop = -(500 - pticaTop);
+
+    najbolji_rezultati.push(poeni_div.innerHTML);
+    najbolji_rezultati.sort(function(a,b){
+        return b-a;
+    });
+
     if((pticaTop > 480) || ((blokLeft < 20) && (blokLeft > -50) && ((pTop < rupaTop) || (pTop > rupaTop + 130)))){
         --zivoti;
-        najbolji_rezultat.push(poeni_div.innerHTML);
         if(zivoti > 0){
             alert('Preostalo zivota ' + zivoti + '. Ostvareno poena ' + poeni_div.innerHTML)
         }else{
-            alert('Igra zavrsena. Najbolji rezultat: ' + najbolji_rezultat.sort(function(a,b){return b-a}));
+            alert('Igra zavrsena. Najbolji rezultat: ' + najbolji_rezultati[0]);
+            najbolji_rezultati = [];
             zivoti = 3;
         }
         poeni_div.innerHTML = 0;
