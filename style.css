@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 #game{
-    width: 400px;
+    max-width: 400px;
     height: 500px;
     border: 1px solid black;
     margin: auto;
