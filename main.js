@@ -3,6 +3,7 @@ var blok = document.getElementById('block');
 var ptica = document.getElementById('character');
 var poeni_div = document.getElementById('points');
 var skakanje = 0;
+var zivoti = 3
 var poeni = 0;
 
 function hole_position(){
@@ -29,7 +30,13 @@ setInterval(function(){
     var rupaTop = parseInt(window.getComputedStyle(rupa).getPropertyValue('top'));
     var pTop = -(500 - pticaTop);
     if((pticaTop > 480) || ((blokLeft < 20) && (blokLeft > -50) && ((pTop < rupaTop) || (pTop > rupaTop + 130)))){
-        alert('Game over. ' + poeni_div.innerHTML + ' points');
+        --zivoti;
+        if(zivoti > 0){
+            alert('Preostalo zivota ' + zivoti + '. Ostvareno poena ' + poeni_div.innerHTML)
+        }else{
+            alert('Game over. ' + poeni_div.innerHTML + ' points');
+            zivoti = 3;
+        }
         poeni_div.innerHTML = 0;
         poeni = 0;
         ptica.style.top = 100 + 'px';
