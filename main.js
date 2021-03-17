@@ -39,9 +39,9 @@ setInterval(function(){
     if((pticaTop > 480) || ((blokLeft < 20) && (blokLeft > -50) && ((pTop < rupaTop) || (pTop > rupaTop + 130)))){
         --zivoti;
         if(zivoti > 0){
-            alert('Preostalo zivota ' + zivoti + '. Ostvareno poena ' + poeni_div.innerHTML)
+            alert('Lifes remaining ' + zivoti + '. Points ' + poeni_div.innerHTML)
         }else{
-            alert('Igra zavrsena. Najbolji rezultat: ' + najbolji_rezultati[0]);
+            alert('Game over. Best score: ' + najbolji_rezultati[0]);
             najbolji_rezultati = [];
             zivoti = 3;
         }
