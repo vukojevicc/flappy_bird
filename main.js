@@ -45,7 +45,6 @@ setInterval(function(){
             najbolji_rezultati = [];
             zivoti = 3;
         }
-        var el = blok;
         poeni_div.innerHTML = 0;
         poeni = 0;
         ptica.style.top = 100 + 'px';
